@@ -1,0 +1,2 @@
+class FigureOrder < ApplicationRecord
+end
