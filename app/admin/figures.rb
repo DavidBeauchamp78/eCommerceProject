@@ -5,7 +5,7 @@ ActiveAdmin.register Figure do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :price, :image
+  permit_params :name, :description, :price, :image, :faction
   #
   # or
   #

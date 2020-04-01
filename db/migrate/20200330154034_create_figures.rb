@@ -3,7 +3,7 @@ class CreateFigures < ActiveRecord::Migration[6.0]
     create_table :figures do |t|
       t.string :name
       t.string :description
-      t.string :faction
+      t.references :faction, null: false, foreign_key: true
       t.integer :price
       t.string :image
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_154346) do
+ActiveRecord::Schema.define(version: 2020_04_01_153229) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,34 +38,50 @@ ActiveRecord::Schema.define(version: 2020_03_30_154346) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "figure_orders", force: :cascade do |t|
-    t.integer "figure_id"
-    t.integer "order_id"
+  create_table "factions", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "figure_orders", force: :cascade do |t|
+    t.integer "figure_id", null: false
+    t.integer "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["figure_id"], name: "index_figure_orders_on_figure_id"
+    t.index ["order_id"], name: "index_figure_orders_on_order_id"
   end
 
   create_table "figures", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "faction_id", null: false
     t.integer "price"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["faction_id"], name: "index_figures_on_faction_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "delivery_info"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "figure_orders", "figures"
+  add_foreign_key "figure_orders", "orders"
+  add_foreign_key "figures", "factions"
+  add_foreign_key "orders", "users"
 end
