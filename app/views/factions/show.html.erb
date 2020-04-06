@@ -1,0 +1,6 @@
+<h2><%= @faction.name %></h2>
+<ul>
+    <% @faction.figures.each do |figure| %>
+        <li><%= link_to figure.name, figure %></li>
+    <% end %>
+</ul>

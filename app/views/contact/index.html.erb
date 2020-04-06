@@ -1,0 +1,19 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @contacts.each do |contact| %>
+            <tr>
+                <td><%= contact.name %></td>
+                <td><%= contact.contact %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+

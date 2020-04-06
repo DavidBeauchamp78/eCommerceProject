@@ -3,4 +3,7 @@ class Figure < ApplicationRecord
     has_many :figure_orders
     
     validates :name, :description, :price, presence: true
+    validates :price, numericality: true
+
+    # has_one_attached :image
 end
