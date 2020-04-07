@@ -1,6 +1,13 @@
+<h2>Figures</h2>
+<%= form_tag('/figures', method: :get) do %>
+    <%= select_tag(:faction, options_for_select(Faction.all.map {|f| [f.name, f.name] }), include_blank: true) %>
+    <%= label_tag(:search, "Search by name or description:") %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag("Search", :name => nil) %>
+<% end %>
 <% @figures.each do |figure| %>
     <div>
-        <%= figure.name %>
+        <%= figure.name %>:
         <%= figure.description %>
         $<%= figure.price %>
     </div>

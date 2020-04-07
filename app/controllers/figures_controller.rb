@@ -1,6 +1,7 @@
 class FiguresController < ApplicationController
     def index
-        @figures = Figure.all
+        @factions = Faction.all
+        @figures = Figure.search(params[:faction], params[:search])
     end
 
     def show
