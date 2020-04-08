@@ -1,0 +1,26 @@
+
+<%= form_tag('/figures', method: :get) do %>
+
+    <div>
+        <%= label_tag(:name, "Name:") %>
+        <%= text_field_tag :name, params[:name] %> 
+    </div>
+    
+    <div>
+        <%= label_tag(:description, "Description:") %>
+        <%= text_field_tag :description, params[:description] %>
+    </div>
+
+    <div>
+        <%= label_tag(:price, "Price:") %>
+        <%= number_field_tag :price, params[:price] %>
+    </div>
+    
+    <div>
+        <%= label_tag(:faction, "Faction:") %>
+        <%= select_tag(:faction, options_for_select(Faction.all.map {|f| [f.name, f.name] }), include_blank: true) %>
+    </div>
+    
+    
+    <%= submit_tag("Submit", :name => nil) %>
+<% end %>

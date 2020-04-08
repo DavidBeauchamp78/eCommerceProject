@@ -1,4 +1,5 @@
 class Figure < ApplicationRecord
+    
     belongs_to :faction
     has_many :figure_orders
     
@@ -15,5 +16,6 @@ class Figure < ApplicationRecord
             return Figure.all
         end
     end
-    has_one_attached :image
+    # has_one_attached :image
+    mount_uploader :image, ImageUploader
 end
