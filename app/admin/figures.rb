@@ -5,7 +5,19 @@ ActiveAdmin.register Figure do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :description, :price, :image, :faction
+  # permit_params :name, :description, :price, :image, :faction
+  # form partial: 'form'
+  form title: 'Edit figure' do |f|
+    inputs 'Details' do
+      input :name
+      input :description
+      input :price
+      input :faction
+      input :image, as: :file
+    end
+    para "Press cancel to return to the list without saving."
+    actions
+  end
   #
   # or
   #

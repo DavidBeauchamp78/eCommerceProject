@@ -15,5 +15,5 @@ class Figure < ApplicationRecord
             return Figure.all
         end
     end
-    # has_one_attached :image
+    has_one_attached :image
 end
