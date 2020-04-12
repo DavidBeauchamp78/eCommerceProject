@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :contact
   resources :about
   resources :factions
-  get '/', to: 'figures#index'
+  get '/', to: 'about#index'
   # get 'pages/about' => 'high_voltage/pages#show', id: 'about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
