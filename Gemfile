@@ -31,6 +31,7 @@ gem 'activeadmin'
 gem 'high_voltage', '~> 3.1'
 gem 'tinymce-rails'
 gem 'carrierwave', '~> 2.0'
+gem 'kaminari'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

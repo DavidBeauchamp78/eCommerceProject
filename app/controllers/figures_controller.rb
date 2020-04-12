@@ -11,8 +11,8 @@ class FiguresController < ApplicationController
     end
     
     def index
-        @factions = Faction.all
-        @figures = Figure.search(params[:faction], params[:search])
+        @factions = Faction.all.page(params[:page])
+        @figures = Figure.search(params[:faction], params[:search]).page(params[:page])
     end
 
     def show

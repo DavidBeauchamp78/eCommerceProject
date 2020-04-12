@@ -1,15 +1,35 @@
 <h2>Figures</h2>
-<%= form_tag('/figures', method: :get) do %>
-    <%= select_tag(:faction, options_for_select(Faction.all.map {|f| [f.name, f.name] }), include_blank: true) %>
-    <%= label_tag(:search, "Search by name or description:") %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag("Search", :name => nil) %>
-<% end %>
-<% @figures.each do |figure| %>
-    <div>
-        <%= figure.name %>:
-        <%= figure.description %>
-        $<%= figure.price %>
-        <%= link_to image_tag("#{figure.image}") %>
-    </div>
-<% end %>
+<div>
+    <%= paginate @figures %>
+</div>
+
+<div>
+    <%= form_tag('/figures', method: :get) do %>
+        <%= select_tag(:faction, options_for_select(Faction.all.map {|f| [f.name, f.name] }), include_blank: true) %>
+        <%= label_tag(:search, "Search by name or description:") %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag("Search", :name => nil) %>
+    <% end %>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @figures.each do |figure| %>
+            <tr>
+                <th><%= link_to figure.name, figure %></th>
+                <th><%= figure.description %></th>
+                <th>$<%= figure.price %></th>
+                <th><%= link_to image_tag("#{figure.image}") %></th>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
