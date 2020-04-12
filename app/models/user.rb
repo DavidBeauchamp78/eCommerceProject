@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
     has_many :orders
+    belongs_to :province
     validates :name, :delivery_info, :password, presence: true
 end

@@ -9,6 +9,7 @@ require 'nokogiri'
 require 'open-uri'
 
 Figure.destroy_all
+Province.destroy_all
 
 unit_ids = ['Necrons', 'Eldar', 'Dark_Eldar', 'Genestealer_Cults', 'Grey_Knights']
 for id in unit_ids do
@@ -52,8 +53,19 @@ for id in unit_ids do
     # }
 end
 
-    
-
-
+Province.create(name: 'British Columbia', PST: 0.07, GST: 0.05, HST: 0.00)
+Province.create(name: 'Alberta', PST: 0.00, GST: 0.05, HST: 0.00)
+Province.create(name: 'Saskatchewan', PST: 0.05, GST: 0.05, HST: 0.00)
+Province.create(name: 'Manitoba', PST: 0.07, GST: 0.05, HST: 0.00)
+Province.create(name: 'Ontario', PST: 0.00, GST: 0.00, HST: 0.13)
+Province.create(name: 'Quebec', PST: 0.095, GST: 0.05, HST: 0.00)
+Province.create(name: 'New Brunswick', PST: 0.00, GST: 0.00, HST: 0.13)
+Province.create(name: 'Nova Scotia', PST: 0.00, GST: 0.00, HST: 0.15)
+Province.create(name: 'Newfoundland and Labrador', PST: 0.00, GST: 0.00, HST: 0.15)
+Province.create(name: 'Prince Edward Island', PST: 0.00, GST: 0.00, HST: 0.15)
+Province.create(name: 'Nova Scotia', PST: 0.00, GST: 0.00, HST: 0.15)
+Province.create(name: 'Northwest Territories', PST: 0.05, GST: 0.00, HST: 0.00)
+Province.create(name: 'Yukon', PST: 0.05, GST: 0.00, HST: 0.00)
+Province.create(name: 'Nunavit', PST: 0.05, GST: 0.00, HST: 0.00)
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
