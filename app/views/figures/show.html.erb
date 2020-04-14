@@ -1,6 +1,5 @@
-<h2> <%= @figure.name %></h2>
 <h5> <%= link_to "Home Page", '/' %></h5>
-<p> <%= link_to @figure.faction.name, @figure.faction %></p>
-<p> $<%= @figure.price %> </p>
-<p> <%= @figure.description %> </p>
-<p> <%= link_to image_tag("#{@figure.image}") %> </p>
+<%= link_to 'Figures', '/figures' %>
+<%= link_to 'Factions', '/factions' %>
+<%= link_to 'Contact Page', '/contact' %>
+<%= render partial: 'show' %>

@@ -1,5 +1,7 @@
 <h2>Factions</h2>
 <h5> <%= link_to "Home Page", '/' %></h5>
+<%= link_to 'Figures', '/figures' %>
+<%= link_to 'Contact Page', '/contact' %>
 <% @factions.each  do | faction | %>
     <%= link_to faction.name, faction %>
 <% end %>
