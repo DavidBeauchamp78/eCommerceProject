@@ -9,9 +9,9 @@ class Figure < ApplicationRecord
     def self.search(faction, search)
         if "#{faction}".length > 0
             faction = Faction.find_by name: faction
-            figures = faction.figures.where('name LIKE ? OR description LIKE ?', "%" + search.camelize + "%", "%" + search + "%")
+            figures = faction.figures.where("name LIKE ? OR description LIKE ?", "%" + search.camelize + "%", "%" + search + "%")
         elsif "#{search}".length > 0
-            figures = Figure.where('name LIKE ? OR description LIKE ?', "%" + search.camelize + "%", "%" + search + "%")
+            figures = Figure.where("name LIKE ? OR description LIKE ?", "%" + search.camelize + "%", "%" + search + "%")
         else 
             return Figure.all
         end
