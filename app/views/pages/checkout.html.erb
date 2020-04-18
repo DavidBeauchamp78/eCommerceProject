@@ -4,14 +4,27 @@
 <%= link_to 'Factions', '/factions' %>
 <%= link_to 'Contact Page', '/contact' %>
 <%= link_to 'Shopping Cart', '/pages/cart' %>
+
 <% total=0 %>
+<% tax=0 %>
+
+<% if (current_user.province.HST != 0) %>
+    <% tax_rate = current_user.province.HST %>
+<% else %>
+    <% tax_rate = current_user.province.PST +  current_user.province.GST %>
+<% end %>
+
 <% @cart.each do |f| %>
     <% @figure = Figure.find(f[0]) %>
     <% total += @figure.price*f[1] %>
+    <% tax += @figure.price*f[1]*tax_rate %>
    <div>
         <%= @figure.name %>
         $<%= @figure.price*f[1] %>
         Quantity: <%= f[1] %>
    </div>
 <% end %>
-Total: $<%= total %>
+
+SubTotal: $<%= total %>
+Taxes: $<%= tax %>
+Total $<%= tax+total %> 
