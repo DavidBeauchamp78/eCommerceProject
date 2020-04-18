@@ -3,6 +3,7 @@
 <%= link_to 'Figures', '/figures' %>
 <%= link_to 'Factions', '/factions' %>
 <%= link_to 'Contact Page', '/contact' %>
+<%= link_to 'Orders', '/orders' %>
 <ul>
     <% @faction.figures.each do |figure| %>
         <li><%= link_to figure.name, figure %></li>

@@ -1,0 +1,6 @@
+<h2>Orders</h2>
+<% @orders.each do |o| %>
+    <div>
+        <%= link_to o.id, o %>
+    </div>
+<% end %>

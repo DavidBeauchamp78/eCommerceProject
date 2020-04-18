@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :contact
   resources :about
   resources :factions
+  resources :orders
   get '/', to: 'about#index'
   post 'figures/add_to_cart/:id', to: 'figures#add_to_cart', as: 'add_to_cart'
   post 'figures/increase_quantity/:id', to: 'figures#increase_quantity', as: 'increase_quantity'
