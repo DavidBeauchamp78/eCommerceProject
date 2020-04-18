@@ -34,7 +34,7 @@ unit_ids.each do |id|
         name = stuff[0].to_s
         unless !name.include?("(") && !name.include?(")") && !name.include?("[") && !name.include?("]") && !name.include?("Note")
           next
-          end
+        end
 
         desc = stuff[1]
         faction.figures.create(
