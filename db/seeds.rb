@@ -35,7 +35,7 @@ for id in unit_ids do
                     stuff = e.content.split(":", 2)
                     # f.puts e
                     name = stuff[0].to_s
-                    if (!name.include?("(") && !name.include?(")") && !name.include?("[") && !name.include?("]") && !name.include?("Note")) 
+                    if (!name.include?("(") && !name.include?(")") && !name.include?("[") && !name.include?("]") && !name.include?("Note"))
                         desc = stuff[1]
                         faction.figures.create(
                             name: name,
