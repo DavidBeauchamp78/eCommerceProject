@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post 'figures/decrease_quantity/:id', to: 'figures#decrease_quantity', as: 'decrease_quantity'
   delete 'figures/remove_from_cart/:id', to: 'figures#remove_from_cart', as: 'remove_from_cart'
   get 'pages/cart' => 'high_voltage/pages#show', id: 'cart'
+  get 'pages/checkout' => 'high_voltage/pages#show', id: 'checkout'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,6 +3,7 @@
 <%= link_to 'Figures', '/figures' %>
 <%= link_to 'Factions', '/factions' %>
 <%= link_to 'Contact Page', '/contact' %>
+<%= link_to 'Check Out', '/pages/checkout' %>
 <% @cart.each do |f| %>
     <% @figure = Figure.find(f[0]) %>
     <%= render partial: 'figures/show', object: @figure %>
