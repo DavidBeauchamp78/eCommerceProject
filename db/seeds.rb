@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "nokogiri"
 require "open-uri"
 
@@ -32,9 +25,7 @@ unit_ids.each do |id|
         stuff = e.content.split(":", 2)
         # f.puts e
         name = stuff[0].to_s
-        unless !name.include?("(") && !name.include?(")") && !name.include?("[") && !name.include?("]") && !name.include?("Note")
-          next
-        end
+        next unless ["(", ")", "[", "]", "Note"].none? { |word| name.include?(word) }
 
         desc = stuff[1]
         faction.figures.create(
@@ -64,4 +55,4 @@ Province.create(name: "Northwest Territories", PST: 0.05, GST: 0.00, HST: 0.00)
 Province.create(name: "Yukon", PST: 0.05, GST: 0.00, HST: 0.00)
 Province.create(name: "Nunavit", PST: 0.05, GST: 0.00, HST: 0.00)
 
-# AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password") if Rails.env.development?
+AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password") if Rails.env.development?

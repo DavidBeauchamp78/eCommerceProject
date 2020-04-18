@@ -9,12 +9,12 @@ class Figure < ApplicationRecord
     if !faction.to_s.empty?
       faction = Faction.find_by name: faction
       faction.figures.where("name LIKE ? OR description LIKE ?",
-        "%" + search.camelize + "%",
-        "%" + search + "%")
+                            "%" + search.camelize + "%",
+                            "%" + search + "%")
     elsif !search.to_s.empty?
       Figure.where("name LIKE ? OR description LIKE ?",
-        "%" + search.camelize + "%",
-        "%" + search + "%")
+                   "%" + search.camelize + "%",
+                   "%" + search + "%")
     else
       Figure.all
     end

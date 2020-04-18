@@ -13,6 +13,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - config.ru
+    - app/controllers/users/*
 
 require:
   - rubocop-rails
