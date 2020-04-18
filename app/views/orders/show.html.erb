@@ -13,3 +13,5 @@
         <%= render partial: 'figures/show', object: @figure %>
     </div>
 <% end %>
+Price: $<%= @order.total_price %>
+Shipped To: <%= current_user.deliver_info %> <%= current_user.province.name %>

@@ -1,4 +1,11 @@
 <h2>Orders</h2>
+
+<h5> <%= link_to "Home Page", '/' %></h5>
+<%= link_to 'Figures', '/figures' %>
+<%= link_to 'Factions', '/factions' %>
+<%= link_to 'Contact Page', '/contact' %>
+<%= link_to 'Shopping Cart', '/pages/cart' %>
+
 <% @orders.each do |o| %>
     <div>
         <%= link_to o.id, o %>
