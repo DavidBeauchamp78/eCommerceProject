@@ -1,6 +1,6 @@
 class Figure < ApplicationRecord
   belongs_to :faction, dependent: :destroy
-  has_many :figure_orders, dependent: :delete
+  has_many :figure_orders, dependent: :destroy
 
   validates :name, :description, :price, presence: true
   validates :price, numericality: true
